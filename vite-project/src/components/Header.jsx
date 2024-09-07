@@ -14,6 +14,9 @@ function Header() {
             <Link to="/contact">
             <li>Contact</li>
             </Link>
+            <Link to="/demo">
+            <li>Demo</li>
+            </Link>
         </ul>
         </div>
     )

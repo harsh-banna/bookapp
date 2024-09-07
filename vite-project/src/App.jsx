@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Booklist from './components/Booklist'
 import { Books } from './utils/mockdata'
+import { useEffect } from 'react'
+import useFetch from './utils/useFetch'
 import "./components/style.css"
 import Header from './components/Header'
 /**
@@ -16,8 +18,30 @@ import { Outlet } from 'react-router-dom'
 function App() {
   
   const [searchtext,setsearchtext]=useState("");
-  const [filteredbooks, setfilteredbooks]=useState(Books);
+  const [filteredbooks, setfilteredbooks]=useState([]);
+  const {data, error, loading} = useFetch("https://freetestapi.com/api/v1/books");
+  useEffect(()=>{
+    if(data){
+      setfilteredbooks(data);
+    }
+   },[data]);
 
+   if(error) {
+    return <h1> error in data fetchiong</h1>;}
+
+   if(loading) {
+    return <p>Loading.....</p>;
+   }
+
+// async function fetchdata() {
+//     const response = await fetch("https://freetestapi.com/api/v1/books");
+//     const data = await response.json();
+
+//     setfilteredbooks(data);
+
+//     console.log("result",data);
+// }
+ 
   function handlesearch(){
      console.log(searchtext);
      const filterbooks = Books.filter((book) => 

@@ -8,6 +8,7 @@ import Contact from './components/Contact.jsx';
 import Error from './components/Error.jsx';
 import Booklist from './components/Booklist.jsx';
 import BookDetails from './components/BookDetails.jsx';
+import Demo from './components/Demo.jsx';
 
 // create routing config
 
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/book/:id",
         element: <BookDetails/>
+      },
+      {
+        path: "/demo",
+        element: <Demo/>
       },
     ],
     errorElement:<Error/>
