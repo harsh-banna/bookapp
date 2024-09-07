@@ -4,11 +4,14 @@ import viteLogo from '/vite.svg'
 import Booklist from './components/Booklist'
 import { Books } from './utils/mockdata'
 import "./components/style.css"
+import Header from './components/Header'
 /**
  * 
  *111 booklist component
  * book compent
  */
+
+import { Outlet } from 'react-router-dom' 
 
 function App() {
   
@@ -25,6 +28,8 @@ function App() {
   
   return(
     <>
+    <Header/>
+    <Outlet/>
     <div className='search'>
     <h2>search Books</h2>
       <div>
