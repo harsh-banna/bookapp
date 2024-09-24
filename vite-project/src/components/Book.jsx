@@ -1,5 +1,11 @@
 import "./style.css"
+import { useContext } from "react";
+import userContext from "../utils/userContext";
+
 function Book(props){
+
+  const data= useContext(userContext);
+
 
     return(
         <>
@@ -9,6 +15,7 @@ function Book(props){
             <h2  className="book-title">{props.bookDetails.title}</h2>
             <p className="book-author">{props.bookDetails.author}</p>
             <p className="book-des">{props.bookDetails.description}</p>
+            <p>{data.loggedInUser}</p>
           </div>
         </div>  
         </>

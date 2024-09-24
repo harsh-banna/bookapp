@@ -1,7 +1,12 @@
 import "./header.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import userContext from "../utils/userContext";
 
 function Header() {
+
+    const data = useContext(userContext);
+    console.log(data,"ye hai context");
     return(
         <div className="header"> 
         <ul>
@@ -17,6 +22,7 @@ function Header() {
             <Link to="/demo">
             <li>Demo</li>
             </Link>
+            <li>{data.loggedInUser}</li>
         </ul>
         </div>
     )
